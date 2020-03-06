@@ -1,0 +1,23 @@
+{
+  "name": "stat_calc",
+  "version": "1.0.0",
+  "description": "OUR First Node App",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js",
+    "coverage": "jest --coverage",
+    "coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "coveralls": "^3.0.9",
+    "jest": "^25.1.0"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.9",
+    "jest": "^25.1.0"
+  }
+}

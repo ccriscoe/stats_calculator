@@ -4,9 +4,9 @@ class Descriptive {
             throw("ERROR: empty array.");
         }
        return array.reduce((x, y) => x + y, 0) / array.length;
-    }
+   }
 
-    static median(array) {
+   static median(array) {
        let copy = array.slice();
        copy.sort((a, b) => a - b);
        let midpoint = Math.floor(copy.length / 2);
@@ -15,34 +15,50 @@ class Descriptive {
        } else {
            return (copy[midpoint-1] + copy[midpoint]) / 2;
        }
-    }
+   }
 
-    static mode() {
-    }
+   static mode(array) {
+       let counts = {};
+       for (let i = 0; i < array.length; i++) {
+            if (counts.hasOwnProperty(array[i])) {
+                counts[array[i]] += 1;
+            } else {
+                counts[array[i]] = 1;
+            }
+       }
+       let modes = [];
+       let maxCount = Math.max(...Object.values(counts));
+       for (const [key, count] of Object.entries(counts)) {
+           if (count === maxCount) {
+               modes.push(Number(key));
+           }
+       }
+       return modes.sort((a, b) => a - b);
+   }
 
-    static variance() {
-    }
+   static variance() {
+   }
 
-    static stdDev() {
-    }
+   static stdDev() {
+   }
 
-    static quartiles() {
-    }
+   static quartiles() {
+   }
 
-    static skewness() {
-    }
+   static skewness() {
+   }
 
-    static sample_correlation() {
-    }
+   static sample_correlation() {
+   }
 
-    static population_correlation() {
-    }
+   static population_correlation() {
+   }
 
-    static z_score() {
-    }
+   static z_score() {
+   }
 
-    static meanDeviation() {
-    }
+   static meanDeviation() {
+   }
 
 }
 

@@ -1,4 +1,5 @@
-
+//REQUIRES SEED RANDOM NODE PACKAGE
+//use 'npm install seedrandom'
 const seedrandom = require('seedrandom');
 
 class RandomNumbers{

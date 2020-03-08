@@ -36,7 +36,12 @@ class Descriptive {
        return modes.sort((a, b) => a - b);
    }
 
-   static variance() {
+   static variance(array) {
+       // variance of a sample using Bessel's correction
+       let n = array.length;
+       let sumSquares = array.reduce((a, b) => a + b*b, 0);
+       let squaredAvg = (array.reduce((a, b) => a + b, 0) / n) ** 2;
+       return ((sumSquares / n) - squaredAvg) * (n / (n-1));
    }
 
    static stdDev() {

@@ -44,13 +44,39 @@ class Descriptive {
        return ((sumSquares / n) - squaredAvg) * (n / (n-1));
    }
 
-   static stdDev() {
+   static stdDev(array) {
+       return Descriptive.variance(array) ** 0.5;
    }
 
-   static quartiles() {
+   static quartiles(array) {
+       let q1, q2, q3;
+       let copy = array.slice();
+       copy.sort((a, b) => a - b);
+       let percInterval = 100 / copy.length;
+       let perc = percInterval;
+       for (let i = 0; i < copy.length; i++) {
+           if ((perc >= 25) && (typeof q1 === 'undefined')) {
+               q1 = copy[i];
+           }
+           if ((perc >= 50) && (typeof q2 === 'undefined')) {
+               q2 = copy[i];
+           }
+           if ((perc >= 75) && (typeof q3 === 'undefined')) {
+               q3 = copy[i];
+           }
+           perc += percInterval;
+       }
+       return [q1, q2, q3];
    }
 
-   static skewness() {
+   static skewness(array) {
+       // standardized third moment
+       // Note: extremely inaccurate for small n, more sophisticated methods needed
+       let n = array.length;
+       let mean = Descriptive.mean(array);
+       let cubedDev = array.reduce((a, b) => a + (b-mean) ** 3, 0);
+       let stdDev = Descriptive.stdDev(array);
+       return (cubedDev / n) / (stdDev ** 3);
    }
 
    static sample_correlation() {

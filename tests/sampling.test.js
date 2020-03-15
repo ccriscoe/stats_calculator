@@ -38,3 +38,21 @@ test('Find margin of error', () => {
 
 
 });
+test('Find normal confidence interval', () => {
+    let Rand = new Random();
+    let arr = Rand.randomIntListSeeded(seed, -100, 100, 10);
+    let calcInterv = (Sampling.findConfidenceInterval(arr));
+
+    expect(calcInterv[0]).toBeLessThan(calcInterv[1]);
+
+});
+test('Find confidence interval for a sample', () => {
+    let Rand = new Random();
+    let arr = Rand.randomIntListSeeded(seed, -100, 100, 10);
+    let sampleSize = Math.floor(arr.length / 2);
+    let sampleArr = Sampling.systematicSampling(arr, sampleSize);
+    let calcInterv = (Sampling.findConfidenceInterval(sampleArr));
+
+    expect(calcInterv[0]).toBeLessThan(calcInterv[1]);
+
+});

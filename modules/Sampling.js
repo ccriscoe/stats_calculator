@@ -17,19 +17,21 @@ class Sampling{
     }
     static marginOfError(sampleArr, cv, stdDev){
         //Assuming critical value is a z-score and multiplied by Standard Deviation
-        let firstCalc = stdDev / (Math.sqrt(sampleArr.length));
+        let n = sampleArr.length;
+        let firstCalc = stdDev / (Math.sqrt(n));
         return (cv * firstCalc);
 
 
     }
-    findConfidenceInterval(array, x, xMean, xStdDev){
+    static findConfidenceInterval(array){
         //Get all values needed for the Confidence Interval formula
-        let zScore = Descriptive.z_score(x, xMean, xStdDev);
         let stdDev = Descriptive.stdDev(array);
         let mean = Descriptive.mean(array);
+        let x = array[0];
+        let zScore = Descriptive.z_score(x, mean, stdDev);
+
         let n = array.length;
         let result;
-
         if(n == 0){
             throw("ERROR: Empty array, cannot divide by 0");
         }
@@ -45,11 +47,13 @@ class Sampling{
         }
 
     }
-    ciForSample(sampleArr, x, xMean, xStdDev){
+    static ciForSample(sampleArr){
         //Get all values needed for the Confidence Interval formula
-        let zScore = Descriptive.z_score(x, xMean, xStdDev);
         let stdDev = Descriptive.stdDev(sampleArr);
         let mean = Descriptive.mean(sampleArr);
+        let x = sampleArr[0];
+        let zScore = Descriptive.z_score(x, mean, stdDev);
+
         let n = sampleArr.length;
         let result;
 

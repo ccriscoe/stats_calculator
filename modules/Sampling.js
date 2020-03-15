@@ -15,10 +15,10 @@ class Sampling{
         return rand.selectNItemsSeeded(seed, arrList, sampleSize)
 
     }
-    static marginOfError(arr, cv, stdDev){
+    static marginOfError(sampleArr, cv, stdDev){
         //Assuming critical value is a z-score and multiplied by Standard Deviation
-        let firstCalc = stdDev / (Math.sqrt(arr.length));
-        return cv * firstCalc;
+        let firstCalc = stdDev / (Math.sqrt(sampleArr.length));
+        return (cv * firstCalc);
 
 
     }

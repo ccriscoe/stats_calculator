@@ -26,11 +26,13 @@ test('Systematic random sampling', () => {
 test('Find margin of error', () => {
     let Rand = new Random();
     let arr = Rand.randomIntListSeeded(seed, -100, 100, 10);
-    let mean = Descriptive.mean(arr);
-    let stdDev = Descriptive.stdDev(arr);
-    let x = arr[0];
+    let sampleSize = Math.floor(arr.length / 2);
+    let sampleArr = Sampling.systematicSampling(arr, sampleSize);
+    let mean = Descriptive.mean(sampleArr);
+    let stdDev = Descriptive.stdDev(sampleArr);
+    let x = sampleArr[0];
     let zScore = Descriptive.z_score(x, mean, stdDev).toFixed(4);
-    let calc = (Sampling.marginOfError(arr, zScore, stdDev) / 100);
+    let calc = (Sampling.marginOfError(sampleArr, zScore, stdDev) / 100); //Takes it out of percentage form
     expect(calc).toBeGreaterThan(0);
     expect(calc).toBeLessThanOrEqual(1);
 

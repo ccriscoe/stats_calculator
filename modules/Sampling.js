@@ -48,37 +48,17 @@ class Sampling{
 
     }
     static ciForSample(sampleArr){
-        //Get all values needed for the Confidence Interval formula
-        let stdDev = Descriptive.stdDev(sampleArr);
-        let mean = Descriptive.mean(sampleArr);
-        let x = sampleArr[0];
-        let zScore = Descriptive.z_score(x, mean, stdDev);
-
-        let n = sampleArr.length;
-        let result;
-
-        if(n == 0){
-            throw("ERROR: Empty array, cannot divide by 0");
-        }
-        else{
-
-
-            let firstCalc = zScore * (stdDev / (Math.sqrt(n)));
-
-            let lowerRange = mean - firstCalc;
-            let upperRange = mean + firstCalc;
-
-            return result = [lowerRange, upperRange];
-        }
+        //Since it uses the same formula, It will call on the previous function and place a sampled array in the parameter (IDK if im right about this)
+        return this.findConfidenceInterval(sampleArr);
 
     }
-    cochranSampleSize(){
+    static cochranSampleSize(){
 
     }
-    findSampleSizeNoStdDev(){
+    static findSampleSizeNoStDev(){
 
     }
-    findSampleSizeStdDev(){
+    static findSampleSizeStDev(){
 
     }
 

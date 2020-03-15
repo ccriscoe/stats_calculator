@@ -4,7 +4,6 @@ const rand = new Random();
 class Sampling{
     static simpleRandSampling(arrList, sampleSize){
         //uses random functions from random class to pick a random number of items (a sample) from a population (whole array)
-        //sampleSize = Math.floor(arrList.length / 2);
         return rand.selectNItems(arrList, sampleSize);
 
     }
@@ -16,9 +15,10 @@ class Sampling{
         return rand.selectNItemsSeeded(seed, arrList, sampleSize)
 
     }
-    static marginOfError(cv, stdDev){
+    static marginOfError(arr, cv, stdDev){
         //Assuming critical value is a z-score and multiplied by Standard Deviation
-        return cv * stdDev;
+        let firstCalc = stdDev / (Math.sqrt(arr.length));
+        return cv * firstCalc;
 
 
     }
@@ -30,13 +30,19 @@ class Sampling{
         let n = array.length;
         let result;
 
+        if(n == 0){
+            throw("ERROR: Empty array, cannot divide by 0");
+        }
+        else{
+
+
         let firstCalc = zScore * (stdDev / (Math.sqrt(n)));
 
         let lowerRange = mean - firstCalc;
         let upperRange = mean + firstCalc;
 
         return result = [lowerRange, upperRange];
-
+        }
 
     }
     ciForSample(sampleArr, x, xMean, xStdDev){
@@ -44,15 +50,22 @@ class Sampling{
         let zScore = Descriptive.z_score(x, xMean, xStdDev);
         let stdDev = Descriptive.stdDev(sampleArr);
         let mean = Descriptive.mean(sampleArr);
-        let n = array.length;
+        let n = sampleArr.length;
         let result;
 
-        let firstCalc = zScore * (stdDev / (Math.sqrt(n)));
+        if(n == 0){
+            throw("ERROR: Empty array, cannot divide by 0");
+        }
+        else{
 
-        let lowerRange = mean - firstCalc;
-        let upperRange = mean + firstCalc;
 
-        return result = [lowerRange, upperRange];
+            let firstCalc = zScore * (stdDev / (Math.sqrt(n)));
+
+            let lowerRange = mean - firstCalc;
+            let upperRange = mean + firstCalc;
+
+            return result = [lowerRange, upperRange];
+        }
 
     }
     cochranSampleSize(){

@@ -38,24 +38,28 @@ test('Selects random item in a list, within a range of 10 to 100', () => {
     let arrList = Random.randomIntListSeeded(100, 10, 100, size);
     calc.selectRandomItem(arrList);
     expect(arrList).toContain(calc.result);
+    expect(() => {calc.selectRandomItem([]);}).toThrow();
 });
 test('Selects random seeded item in a list, within a range of 10 to 100', () => {
     let size = 10;
     let arrList = Random.randomIntListSeeded(100, 10, 100, size);
-    calc.selectRandomItem(arrList);
+    calc.selectRandomSeededItem(100, arrList);
     expect(arrList).toContain(calc.result);
+    expect(() => {calc.selectRandomSeededItem(100,[]);}).toThrow();
 });
 test('Select 5 random items from an established list', () => {
     let size = 10;
     let arrList = Random.randomIntListSeeded(100, 10, 100, size);
     calc.selectNItems(arrList, 5);
     expect(calc.result).toHaveLength(5);
+    expect(() => {calc.selectNItems([],5);}).toThrow();
 });
 test('Selects 5 seeded random items from an established list', () => {
     let size = 10;
     let arrList = Random.randomIntListSeeded(100, 10, 100, size);
     calc.selectNItemsSeeded(100, arrList, 5);
     expect(calc.result).toHaveLength(5);
+    expect(() => {calc.selectNItemsSeeded(100,[],5);}).toThrow();
 });
 
 // DESCRIPTIVE MODULE
@@ -63,16 +67,19 @@ test('mean', () => {
     let arr = Random.randomIntListSeeded(100, -100, 100, 10);
     calc.mean(arr);
     expect(calc.result).toEqual(jstat.mean(arr));
+    expect(() => {calc.mean([]);}).toThrow();
 });
 test('median', () => {
     let arr = Random.randomIntListSeeded(100, -100, 100, 100);
     calc.median(arr);
     expect(calc.result).toEqual(jstat.median(arr));
+    expect(() => {calc.median([]);}).toThrow();
 });
 test('mode', () => {
     let arr = Random.randomIntListSeeded(100, -100, 100, 100);
     calc.mode(arr);
     expect(calc.result).toEqual(jstat.mode(arr));
+    expect(() => {calc.mode([]);}).toThrow();
 });
 test('variance', () => {
     let arr = Random.randomIntListSeeded(100, -100, 100, 10);
@@ -80,13 +87,15 @@ test('variance', () => {
     let val = calc.result.toFixed(4);
     let actual = jstat.variance(arr, true).toFixed(4);
     expect(val).toEqual(actual);
+    expect(() => {calc.variance([]);}).toThrow();
 });
-test('variance', () => {
+test('std dev', () => {
     let arr = Random.randomIntListSeeded(100, -100, 100, 10);
     calc.stdDev(arr);
     let val = calc.result.toFixed(4);
     let actual = jstat.stdev(arr, true).toFixed(4);
     expect(val).toEqual(actual);
+    expect(() => {calc.stdDev([]);}).toThrow();
 });
 test('quartiles', () => {
     for (let n = 8; n < 12; n++) {
@@ -95,6 +104,7 @@ test('quartiles', () => {
         let actual = jstat.quartiles(arr);
         expect(calc.result).toHaveLength(3);
     }
+    expect(() => {calc.quartiles([]);}).toThrow();
 });
 test('skewness', () => {
     let arr = Random.randomIntListSeeded(100, -100, 100, 100);
@@ -102,6 +112,7 @@ test('skewness', () => {
     let val = calc.result.toFixed(4);
     let actual = jstat.skewness(arr).toFixed(4);
     expect(val).toEqual(actual);
+    expect(() => {calc.skewness([]);}).toThrow();
 });
 test('sample correlation', () => {
     let xArr = Random.randomIntListSeeded(100, -100, 100, 100);
@@ -115,6 +126,7 @@ test('sample correlation', () => {
     let upperBound = Math.max(actual * (1 - percError/100), actual * (1 + percError/100));
     expect(calc.result).toBeGreaterThanOrEqual(lowerBound);
     expect(calc.result).toBeLessThanOrEqual(upperBound);
+    expect(() => {calc.sample_correlation([],[]);}).toThrow();
 });
 test('z_score', () => {
     let arr = Random.randomIntListSeeded(100, -100, 100, 100);
@@ -132,6 +144,7 @@ test('meanDeviation', () => {
     let val = calc.result.toFixed(4);
     let actual = jstat.meandev(arr).toFixed(4);
     expect(val).toEqual(actual);
+    expect(() => {calc.meanDeviation([]);}).toThrow();
 });
 test('population correlation', () => {
     let xArr = Random.randomIntListSeeded(100, -100, 100, 100);
@@ -142,6 +155,7 @@ test('population correlation', () => {
     let val = calc.result.toFixed(4);
     let actual = jstat.corrcoeff(xArr, yArr).toFixed(4);
     expect(val).toEqual(actual);
+    expect(() => {calc.population_correlation([],[]);}).toThrow();
 });
 
 // SAMPLING MODULE
@@ -151,6 +165,7 @@ test('Simple random sampling', () => {
     let sampleSize = Random.randomIntSeed(100, 1, size - 1);
     calc.simpleRandSample(arrList, sampleSize, 100);
     expect(calc.result).toHaveLength(sampleSize);
+    expect(() => {calc.simpleRandSample([],sampleSize,100);}).toThrow();
 });
 test('Systematic random sampling', () => {
     let size = 10;
@@ -158,6 +173,7 @@ test('Systematic random sampling', () => {
     let sampleSize = Random.randomIntSeed(100,1, size - 1);
     calc.systematicSample(arrList, sampleSize);
     expect(calc.result).toHaveLength(sampleSize);
+    expect(() => {calc.systematicSample([],sampleSize);}).toThrow();
 });
 test('Get z-score from confidence level', () => {
     calc.getZFromConfidence(95);
@@ -169,6 +185,7 @@ test('Find margin of error', () => {
     let confidence = Math.floor(Random.randomIntSeed(100, 50, 95) /  5) * 5;
     calc.marginOfError(sampleArr, confidence);
     expect(calc.result).toBeGreaterThan(0);
+    expect(() => {calc.marginOfError([],confidence);}).toThrow();
 });
 test('Confidence interval', () => {
     let size = 10;
@@ -179,6 +196,7 @@ test('Confidence interval', () => {
     expect(calc.result).toHaveLength(2);
     expect(calc.result[0]).toBeLessThan(mean);
     expect(calc.result[1]).toBeGreaterThan(mean);
+    expect(() => {calc.confidenceInterval([],confidence);}).toThrow();
 });
 test('Cochran sample size', () => {
     calc.cochranFormula(95, 5);
@@ -190,5 +208,7 @@ test('Finding sample size', () => {
     let confidence = Math.floor(Random.randomIntSeed(100, 50, 95) /  5) * 5;
     let stdDev = Descriptive.stdDev(sampleArr);
     calc.findSampleSizeNoStdDev(95,10, 0.5);
+    expect(calc.result).toBeGreaterThan(0);
+    calc.findSampleSizeWithStdDev(95,10, stdDev);
     expect(calc.result).toBeGreaterThan(0);
 });

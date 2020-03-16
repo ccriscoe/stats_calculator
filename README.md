@@ -6,40 +6,9 @@ Connor Criscoe: Worked on Descriptive Static Class and half of Population Sampli
 
 PROJECT OUTLINE:
 1. Stat Calculator Object
-    1. Properties
-        1. result
-    2. Methods
-        1. Constructor Method
-        2. Random Int No Seed -> Calls random int method from Random
-        3. Random Float No seed -> Calls random float method from Random
-        4. Random Int seeded -> Calls random seeded int method from Random
-        5. Random Float seeded -> Calls random seeded float method from Random
-        6. Random Float List seeded -> Calls random seeded float list method from Random
-        7. Random Int List seeded -> Calls random seeded int list method from Random
-        8. Select Random Item -> Calls random item method from Random
-        9. Select Random Seeded Item -> Calls random seeded item method from Random
-        10. Select N Items From List -> Calls select n items method from Random
-        11. Select N Items seeded -> Calls select n seeded items method from Random
-        12. Mean -> Calls mean static method from Descriptive Class
-        13. Median -> Calls Median static method from Descriptive Class
-        14. Mode -> Calls Mode static method from Descriptive Class
-        15. Variance -> Calls Variance static method from Descriptive Class
-        16. Standard Deviation -> Calls St Deviation (stdDev) static method from Descriptive Class
-        17. Quartiles -> Calls quartiles static method from Descriptive Class
-        18. Skewness -> Calls skewness static method from Descriptive Class
-        19. Sample Correlation -> Calls sample_correlation static method from Descriptive Class
-        20. Population Correlation -> Calls population_correlation static method from Descriptive Class
-        21. Z Score -> Calls z_score static method from Descriptive Class
-        22. Mean Deviation -> Calls meanDeviation static method from Descriptive Class
-        23. Get Z From Confidence -> Calls getZFromConfidence static method from Sampling Class
-        24. Simple Random Sampling -> Calls simpleRandSampling static method from Sampling Class
-        25. Systematic Sampling -> Calls systematicSampling static method from Sampling Class
-        26. Margin of Error -> Calls marginOfError static method from Sampling Class
-        27. Confidence Interval -> Calls confidenceInterval static method from Sampling Class
-        28. Cochran's Formula -> Calls cochranFormula static method from Sampling Class
-        29. Find Sample Size w/o St Deviation -> Calls findSampleSizeNoStdDev static method from Sampling Class
-        30. Find Sample Size w/ St Deviation -> Calls findSampleSizeWithStdDev static method from Sampling Class
-    3. Descriptive Static Class
+    1. Methods
+        1. Mean -> Calls mean static method from Descriptive Class
+    2. Descriptive Static Class
         1. Methods
             1. Mean of array
             2. Median of array
@@ -52,7 +21,7 @@ PROJECT OUTLINE:
             9. Population Correlation of array
             10. Z Score of array
             11. Mean Deviation of array
-    4. Sampling Static Class
+    3. Sampling Static Class
         1. Methods
             1. Simple Random Samples an array
             2. Systematic Sample of array
@@ -64,7 +33,7 @@ PROJECT OUTLINE:
             6. Cochran's Sample Size Formula
             7. How to Find Sample Size given a Confidence Interval and Width (unknown population standard deviation)
             8. How to Find Sample Size Given a Confidence Interval and Width (known population standard deviation)
-    5. Random Number Generator Object Class
+    4. Random Number Generator Object Class
         1. Methods
             1. Generate a random number without a seed between a range of two numbers - Integer
             2. Generate a random number without a seed between a range of two numbers - Decimal(Float)

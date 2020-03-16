@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ccriscoe/stats_calculator.svg?branch=master)](https://travis-ci.org/ccriscoe/stats_calculator) [![Coverage Status](https://coveralls.io/repos/github/ccriscoe/stats_calculator/badge.svg?branch=master)](https://coveralls.io/github/ccriscoe/stats_calculator?branch=master)
+
 # stats_calculator
 Statistics calculator for IS219
 

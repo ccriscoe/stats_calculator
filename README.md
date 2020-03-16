@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.org/ccriscoe/stats_calculator.svg?branch=master)](https://travis-ci.org/ccriscoe/stats_calculator)
-[![Coverage Status](https://coveralls.io/repos/github/ccriscoe/stats_calculator/badge.svg?branch=master)](https://coveralls.io/github/ccriscoe/stats_calculator?branch=master)
+[![Build Status](https://travis-ci.org/ccriscoe/stats_calculator.svg?branch=master)](https://travis-ci.org/ccriscoe/stats_calculator) [![Coverage Status](https://coveralls.io/repos/github/ccriscoe/stats_calculator/badge.svg?branch=master)](https://coveralls.io/github/ccriscoe/stats_calculator?branch=master)
 
 # stats_calculator
 Statistics calculator for IS219
@@ -8,9 +7,38 @@ Daniel Ramirez: Worked on RNG Class and half of Population Sampling (and their t
 Connor Criscoe: Worked on Descriptive Static Class and half of Population Sampling (and their tests)
 
 PROJECT OUTLINE:
-1. StatsCalculator Object
+1. Stat Calculator Object
     1. Methods
-        1. Mean -> Calls mean static method from Descriptive Class
+         1. Constructor Method
+         2. Random Int No Seed -> Calls random int method from Random
+         3. Random Float No seed -> Calls random float method from Random
+         4. Random Int seeded -> Calls random seeded int method from Random
+         5. Random Float seeded -> Calls random seeded float method from Random
+         6. Random Float List seeded -> Calls random seeded float list method from Random
+         7. Random Int List seeded -> Calls random seeded int list method from Random
+         8. Select Random Item -> Calls random item method from Random
+         9. Select Random Seeded Item -> Calls random seeded item method from Random
+         10. Select N Items From List -> Calls select n items method from Random
+         11. Select N Items seeded -> Calls select n seeded items method from Random
+         12. Mean -> Calls mean static method from Descriptive Class
+         13. Median -> Calls Median static method from Descriptive Class
+         14. Mode -> Calls Mode static method from Descriptive Class
+         15. Variance -> Calls Variance static method from Descriptive Class
+         16. Standard Deviation -> Calls St Deviation (stdDev) static method from Descriptive Class
+         17. Quartiles -> Calls quartiles static method from Descriptive Class
+         18. Skewness -> Calls skewness static method from Descriptive Class
+         19. Sample Correlation -> Calls sample_correlation static method from Descriptive Class
+         20. Population Correlation -> Calls population_correlation static method from Descriptive Class
+         21. Z Score -> Calls z_score static method from Descriptive Class
+         22. Mean Deviation -> Calls meanDeviation static method from Descriptive Class
+         23. Get Z From Confidence -> Calls getZFromConfidence static method from Sampling Class
+         24. Simple Random Sampling -> Calls simpleRandSampling static method from Sampling Class
+         25. Systematic Sampling -> Calls systematicSampling static method from Sampling Class
+         26. Margin of Error -> Calls marginOfError static method from Sampling Class
+         27. Confidence Interval -> Calls confidenceInterval static method from Sampling Class
+         28. Cochran's Formula -> Calls cochranFormula static method from Sampling Class
+         29. Find Sample Size w/o St Deviation -> Calls findSampleSizeNoStdDev static method from Sampling Class
+         30. Find Sample Size w/ St Deviation -> Calls findSampleSizeWithStdDev static method from Sampling Class
     2. Descriptive Static Class
         1. Methods
             1. Mean of array

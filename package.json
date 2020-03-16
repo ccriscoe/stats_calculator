@@ -18,6 +18,7 @@
     "jest": "^25.1.0",
     "coveralls": "^3.0.9",
     "seedrandom": "^3.0.5",
-    "jstat": "^1.9.2"
+    "jstat": "^1.9.2",
+    "minimist": ">=1.2.2"
   }
 }

@@ -66,7 +66,7 @@ class Random {
     }
 
     //Selects a random seeded item
-    static selectRandomSeededItem(seed,arrList)
+    static selectRandomSeededItem(seed, arrList)
     {
         seedrandom(seed, { global: true });
         let randItem = Math.floor(Math.random() * arrList.length);

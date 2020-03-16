@@ -12,6 +12,15 @@ test('mean', () => {
 test('median', () => {
     let arr = Random.randomIntListSeeded(seed, -100, 100, 100);
     if (verboseOutput) {
+        console.log(Descriptive.median(arr));
+        console.log(jstat.median(arr));
+    }
+    expect(Descriptive.median(arr)).toEqual(jstat.median(arr));
+});
+
+test('mode', () => {
+    let arr = Random.randomIntListSeeded(seed, -100, 100, 100);
+    if (verboseOutput) {
         console.log(Descriptive.mode(arr));
         console.log(jstat.mode(arr));
     }

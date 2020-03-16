@@ -32,6 +32,8 @@ test('Systematic random sampling', () => {
 test('Get z-score from confidence level', () => {
     expect(Sampling.getZFromConfidence(80)).toEqual(1.28);
     expect(Sampling.getZFromConfidence(95)).toEqual(1.96);
+    expect(() => {Sampling.getZFromConfidence(-1);}).toThrow();
+    expect(() => {Sampling.getZFromConfidence('high');}).toThrow();
 });
 
 test('Find margin of error', () => {
@@ -59,6 +61,7 @@ test('Confidence interval', () => {
     expect(calc).toHaveLength(2);
     expect(calc[0]).toBeLessThan(mean);
     expect(calc[1]).toBeGreaterThan(mean);
+    expect(() => {Sampling.confidenceInterval([],confidence);}).toThrow();
 });
 
 test('Cochran sample size', () => {

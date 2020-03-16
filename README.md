@@ -5,7 +5,7 @@ Daniel Ramirez: Worked on RNG Class and half of Population Sampling (and their t
 Connor Criscoe: Worked on Descriptive Static Class and half of Population Sampling (and their tests)
 
 PROJECT OUTLINE:
-1. Stat Calculator Object
+1. StatsCalculator Object
     1. Methods
         1. Mean -> Calls mean static method from Descriptive Class
     2. Descriptive Static Class

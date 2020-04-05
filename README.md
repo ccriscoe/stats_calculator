@@ -3,9 +3,6 @@
 # stats_calculator
 Statistics calculator for IS219
 
-Daniel Ramirez: Worked on RNG Class and half of Population Sampling (and their tests)
-Connor Criscoe: Worked on Descriptive Static Class and half of Population Sampling (and their tests)
-
 PROJECT OUTLINE:
 1. Stat Calculator Object
     1. Methods

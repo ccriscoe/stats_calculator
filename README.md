@@ -1,10 +1,10 @@
 [![Build Status](https://travis-ci.org/ccriscoe/stats_calculator.svg?branch=master)](https://travis-ci.org/ccriscoe/stats_calculator) [![Coverage Status](https://coveralls.io/repos/github/ccriscoe/stats_calculator/badge.svg?branch=master)](https://coveralls.io/github/ccriscoe/stats_calculator?branch=master)
 
-Daniel Ramirez: Worked on RNG Class and half of Population Sampling (and their tests)	
-Connor Criscoe: Worked on Descriptive Static Class and half of Population Sampling (and their tests)
-
 # stats_calculator
 Statistics calculator for IS219
+
+Daniel Ramirez: Worked on RNG Class and half of Population Sampling (and their tests)	
+Connor Criscoe: Worked on Descriptive Static Class and half of Population Sampling (and their tests)
 
 PROJECT OUTLINE:
 1. Stat Calculator Object
